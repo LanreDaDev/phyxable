@@ -37,7 +37,7 @@ function App(props) {
         style={{ padding: 10 }}
         gutter={[48, 8]}
       >
-        <Col span={8} className="calendarCol">
+        <Col sm={24} md={8} className="calendarCol">
           {" "}
           <MascotSVG />
           <Row style={{ marginTop: -80 }}>
@@ -73,7 +73,7 @@ function App(props) {
             </Col>
           </Row>
         </Col>
-        <Col span={16}>
+        <Col sm={24} md={16}>
           <WeekView />
         </Col>
       </Row>

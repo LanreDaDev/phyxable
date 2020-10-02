@@ -204,6 +204,13 @@ function WeekView(props) {
                       ? AVAILABLETIME.map((time, i) => (
                           <Col span={24} key={time}>
                             <button
+                              disabled={
+                                props.apts[
+                                  format(day, "dd/MMMM/yyyy") + " " + time
+                                ]
+                                  ? true
+                                  : false
+                              }
                               className={
                                 props.apts[
                                   format(day, "dd/MMMM/yyyy") + " " + time
