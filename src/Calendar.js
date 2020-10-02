@@ -18,6 +18,7 @@ import { connect } from "react-redux";
 const Calendar = (props) => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(new Date());
+  const [aptMade, setAptMade] = useState();
 
   useEffect(() => {
     props.onSetWeekOf(
@@ -30,6 +31,7 @@ const Calendar = (props) => {
   useEffect(() => {
     setCurrentDate(props.currentDay);
   }, [props.currentDay]);
+  useEffect(() => {}, [props.modalStatus]);
 
   const header = () => {
     const dateFormat = "MMMM yyyy";
@@ -153,7 +155,11 @@ const Calendar = (props) => {
                   format(day, "MM/dd/yyyy") ===
                   format(props.currentDay, "MM/dd/yyyy")
                     ? "#fff"
-                    : null,
+                    : Object.keys(props.apts).filter((apt) =>
+                        apt.includes(format(day, "dd/MMMM/yyyy"))
+                      ).length === 0
+                    ? null
+                    : "#fff",
                 zIndex: 3,
               }}
             >
@@ -168,7 +174,11 @@ const Calendar = (props) => {
                   format(day, "MM/dd/yyyy") ===
                   format(props.currentDay, "MM/dd/yyyy")
                     ? "#FF5A66"
-                    : null,
+                    : Object.keys(props.apts).filter((apt) =>
+                        apt.includes(format(day, "dd/MMMM/yyyy"))
+                      ).length === 0
+                    ? null
+                    : "#18214D",
                 margin: "auto",
                 transition: 0.15 + `s ease-out`,
               }}
@@ -190,7 +200,11 @@ const Calendar = (props) => {
                     format(day, "MM/dd/yyyy") ===
                     format(props.currentDay, "MM/dd/yyyy")
                       ? "#fff"
-                      : null,
+                      : Object.keys(props.apts).filter((apt) =>
+                          apt.includes(format(day, "dd/MMMM/yyyy"))
+                        ).length === 0
+                      ? null
+                      : "#fff",
                   margin: "auto",
                 }}
               ></div>
@@ -232,6 +246,10 @@ const mapStateToProps = (state, props) => ({
   currentDay: state.currentDayReducer.currentDay
     ? state.currentDayReducer.currentDay
     : new Date(),
+  modalStatus: state.modalStatusReducer.modalStatus
+    ? state.modalStatusReducer.modalStatus
+    : false,
+  apts: state.aptsReducer.apts ? state.aptsReducer.apts : {},
 });
 
 const mapDispatchToProps = (dispatch) => ({
