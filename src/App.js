@@ -67,7 +67,7 @@ function App(props) {
               </h2>{" "}
               <p style={{ color: "#18214D" }}>
                 {" "}
-                Please select an availble time that works best for your
+                Please select an available time that works best for your
                 schedule.
               </p>
             </Col>

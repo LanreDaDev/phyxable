@@ -28,6 +28,9 @@ const Calendar = (props) => {
       })
     );
   }, []);
+  useEffect(() => {
+    setCurrentDate(props.currentDay);
+  }, [props.currentDay]);
 
   const header = () => {
     const dateFormat = "MMMM yyyy";
