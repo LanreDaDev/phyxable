@@ -159,8 +159,8 @@ const Calendar = (props) => {
             </span>
             <div
               style={{
-                width: 2.35 + `em`,
-                height: 2.35 + `em`,
+                width: 2.1 + `em`,
+                height: 2.1 + `em`,
                 borderRadius: 50 + `%`,
                 backgroundColor:
                   format(day, "MM/dd/yyyy") ===
@@ -176,7 +176,7 @@ const Calendar = (props) => {
                 style={{
                   position: "absolute",
 
-                  top: 1 + `em`,
+                  top: 1.95 + `em`,
                   right: 0,
 
                   left: 0,
