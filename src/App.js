@@ -23,7 +23,7 @@ function App(props) {
         style={{
           textAlign: "center",
           fontSize: 32 + `px`,
-          color: "#18214D",
+          color: "#000",
           fontFamily: "Montserrat, sans-serif",
           fontWeight: 600,
           marginBottom: 40,

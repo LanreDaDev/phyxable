@@ -145,6 +145,18 @@ function WeekView(props) {
                   key={day}
                   style={{
                     background: i % 2 == 0 ? null : "#eff2f7",
+
+                    borderWidth: 1 + `px`,
+                    borderColor:
+                      format(props.currentDay, "MM/dd/yyyy") ===
+                      format(day, "MM/dd/yyyy")
+                        ? "#FF5A66"
+                        : "",
+                    borderStyle:
+                      format(props.currentDay, "MM/dd/yyyy") ===
+                      format(day, "MM/dd/yyyy")
+                        ? "solid"
+                        : "none",
                   }}
                   className="weekCell"
                 >

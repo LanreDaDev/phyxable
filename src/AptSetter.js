@@ -154,7 +154,7 @@ function AptSetter(props) {
                     </Col>
                   </Row>
                 </Col>
-                <Col style={{ marginTop: 80 }}>
+                <Col style={{ marginTop: 40 }}>
                   <button className="modalButton" onClick={makeAppointment}>
                     MAKE APPOINTMENT
                   </button>

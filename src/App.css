@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 .App {
-  padding: 10%;
+  padding: 30px 10% 10%;
 }
 
 /* The Modal (background) */
@@ -43,7 +43,7 @@
 
 .close:hover,
 .close:focus {
-  color: #000;
+  color: #ff5a66;
   text-decoration: none;
   cursor: pointer;
 }
@@ -65,8 +65,8 @@
 
 .svgMascot {
   position: relative;
-  bottom: -40em;
-  left: -5em;
+  bottom: -38.5em;
+  left: -1.75em;
 }
 .available {
   background-color: #fff;
@@ -143,11 +143,12 @@
   /* opacity: 0.3, */
   padding-top: 5px;
   padding-bottom: 5px;
+  border: 1px solid #18214d;
 }
 .timeButtonsSelected {
   background: #c9ccd7;
   opacity: 0.3;
-  border-style: none;
+  border: 1px solid #c9ccd7;
   color: #18214d;
   border-radius: 4px;
   width: 100%;
