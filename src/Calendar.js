@@ -176,7 +176,7 @@ const Calendar = (props) => {
                 style={{
                   position: "absolute",
 
-                  top: 1.75 + `em`,
+                  top: 1.725 + `em`,
                   right: 0,
 
                   left: 0,
