@@ -137,7 +137,7 @@ const Calendar = (props) => {
             }`}
             key={day}
             style={{
-              background: i % 2 == 0 ? null : "#eff2f7",
+              background: i % 2 === 0 ? null : "#eff2f7",
               maxWidth: 100 + `%`,
             }}
             onClick={() => onDateClick(cloneDay)}
