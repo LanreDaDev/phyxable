@@ -1,38 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 .App {
-  text-align: center;
+  padding: 10%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 3; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Modal Content */
+.modal-content {
+  background: #ffffff;
+  box-shadow: 0px 6.01274px 6.01274px rgba(51, 51, 51, 0.04),
+    0px 6.01274px 24.051px rgba(51, 51, 51, 0.08);
+  border-radius: 12.0255px;
+  margin: auto;
+  padding: 20px;
+  border-style: none;
+  width: 710px;
+  border-radius: 14.3114px;
+  margin-bottom: 200px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
 
-.App-link {
-  color: #61dafb;
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.mainContent {
+  background: #ffffff;
+  box-shadow: 0px 2.86228px 11.4491px rgba(0, 0, 0, 0.25);
+  border-radius: 14.3114px;
+}
+
+.calendarCol {
+  border-right: 1px solid lightgray;
+}
+
+.weekCell {
+  width: calc(100% / 7);
+  padding: 10px;
+}
+
+.svgMascot {
+  position: relative;
+  bottom: -40em;
+  left: -5em;
+}
+.available {
+  background-color: #fff;
+  text-transform: uppercase;
+  padding: 5px 20px;
+  border-radius: 28px;
+  border: 1px solid #18214d;
+  margin-right: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 9px;
+  color: #18214d;
+}
+
+.booked {
+  background-color: #e4e7ed;
+  text-transform: uppercase;
+  padding: 5px 20px;
+  border-radius: 28px;
+
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 9px;
+  color: #a7acbd;
+}
+
+.modalButton {
+  background: #18214d;
+  border-radius: 40px;
+  border-style: none;
+  padding: 15px 58px;
+  font-size: 17px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.modalButton:hover {
+  background: #ff5a66;
+}
+
+.timeButtons {
+  width: 100%;
+  border: 1px solid #18214d;
+  border-radius: 4px;
+  color: #18214d;
+  /* color: "#eee", */
+
+  font-size: 10px;
+
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  /* borderStyle: "none",
+                               backgroundColor: "#18214D", */
+  background: #fff;
+  /* opacity: 0.3, */
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.timeButtons:hover {
+  width: 100%;
+  /* border: 1px solid #18214d; */
+  /* border-radius: 4px; */
+  color: #fff;
+  /* color: "#eee", */
+  border-radius: 4px;
+  font-size: 10px;
+
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  /* borderStyle: "none",
+                               backgroundColor: "#18214D", */
+  background: #18214d;
+  /* opacity: 0.3, */
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.timeButtonsSelected {
+  background: #c9ccd7;
+  opacity: 0.3;
+  border-style: none;
+  color: #18214d;
+  border-radius: 4px;
+  width: 100%;
 }
