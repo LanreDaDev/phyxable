@@ -20,7 +20,6 @@ const Calendar = (props) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
 
   useEffect(() => {
-    console.log(props.weekOf);
     props.onSetWeekOf(
       eachDayOfInterval({
         start: startOfWeek(currentDate),

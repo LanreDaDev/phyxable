@@ -6,7 +6,6 @@ function AptSetter(props) {
   const [currentDayLoaded, setCurrentDayLoaded] = useState(false);
   useEffect(() => {
     if (props.currentDay && Object.keys(props.currentTime).length != 0) {
-      console.log(props.currentDay, props.currentTime);
       setCurrentDayLoaded(true);
     }
   }, [props.currentDay, props.currentTime]);

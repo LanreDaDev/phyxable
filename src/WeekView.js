@@ -30,7 +30,6 @@ function WeekView(props) {
 
   useEffect(() => {
     if (props.weekOf.length > 0 && props.currentDay) {
-      //   console.log(props.currentDay, props.weekOf[3]);
       setWeekHeaderDisplay({
         year: format(props.currentDay, "yyyy"),
         month: format(props.currentDay, "MMMM"),
@@ -62,7 +61,6 @@ function WeekView(props) {
   }, [props.currentDay]);
 
   useEffect(() => {
-    console.log(notCurrent);
     if (notCurrent) {
       props.onSetWeekOf(
         eachDayOfInterval({
@@ -75,24 +73,17 @@ function WeekView(props) {
   useEffect(() => {}, [props.apts]);
 
   const timeClick = (timeStart, timeEnd) => {
-    // console.log(e.target);
     var time = { start: timeStart, end: timeEnd };
     props.onSetModalStatus(true);
     props.onSetCurrentTime(time);
   };
 
   const nextDay = () => {
-    console.log(addDays(props.currentDay, 1));
     props.onSetCurrentDay(addDays(props.currentDay, 1));
   };
 
   const prevDay = () => {
     props.onSetCurrentDay(subDays(props.currentDay, 1));
-  };
-
-  const dayCell = (day) => {
-    // console.log(e.target.key);
-    // props.onSetCurrentDay(props.weekOf[day]);
   };
 
   return (
@@ -204,9 +195,6 @@ function WeekView(props) {
                           : "#18214D",
                       fontSize: 28 + `px`,
                       fontWeight: 600,
-                    }}
-                    onClick={() => {
-                      console.log(props.currentDay, day);
                     }}
                   >
                     {format(day, "d")}
