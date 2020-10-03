@@ -123,7 +123,6 @@ const Calendar = (props) => {
     props.onSetCurrentDay(day);
 
     if (props.mobileView) {
-      console.log(true);
       props.onSetWeekOf(
         eachDayOfInterval({
           start: day,

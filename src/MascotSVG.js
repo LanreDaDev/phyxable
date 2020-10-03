@@ -4,7 +4,6 @@ function MascotSVG(props) {
   const [mobileMascot, setMobileMascot] = useState(false);
   useEffect(() => {
     setMobileMascot(props.mobileView);
-    console.log(props.mobileView);
   }, [props.mobileView]);
   return (
     <div className="svgMascot">

@@ -42,7 +42,6 @@ function WeekView(props) {
 
   useEffect(() => {
     if (props.mobileView) {
-      console.log(true);
       props.onSetWeekOf(
         eachDayOfInterval({
           start: props.currentDay,
@@ -69,7 +68,6 @@ function WeekView(props) {
   useEffect(() => {
     if (notCurrent) {
       if (props.mobileView) {
-        console.log(true);
         props.onSetWeekOf(
           eachDayOfInterval({
             start: props.currentDay,
@@ -107,7 +105,6 @@ function WeekView(props) {
   useEffect(() => {
     if (notCurrent) {
       if (props.mobileView) {
-        console.log(true);
         props.onSetWeekOf(
           eachDayOfInterval({
             start: props.currentDay,
