@@ -129,12 +129,12 @@ function WeekView(props) {
     <Row style={{ padding: 1.5 + `em ` + 0 }}>
       <Col span={24}>
         {props.currentDay ? (
-          <Row justify="space-between">
+          <Row justify="space-between" align="middle">
             <Col
               style={{
                 color: "#2A2E35",
                 fontWeight: "bold",
-                fontSize: 14 + `px`,
+                fontSize: props.mobileView ? 12 + `px` : 14 + `px`,
                 fontFamily: "Montserrat, sans-serif",
                 paddingBottom: 1.65 + `em`,
               }}
