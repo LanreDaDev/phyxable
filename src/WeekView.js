@@ -49,6 +49,13 @@ function WeekView(props) {
           end: addDays(props.currentDay, 2),
         })
       );
+    } else if (props.tabletView) {
+      props.onSetWeekOf(
+        eachDayOfInterval({
+          start: props.currentDay,
+          end: addDays(props.currentDay, 3),
+        })
+      );
     } else {
       props.onSetWeekOf(
         eachDayOfInterval({
@@ -57,7 +64,7 @@ function WeekView(props) {
         })
       );
     }
-  }, [props.mobileView]);
+  }, [props.mobileView, props.tabletView]);
 
   useEffect(() => {
     if (notCurrent) {
@@ -67,6 +74,13 @@ function WeekView(props) {
           eachDayOfInterval({
             start: props.currentDay,
             end: addDays(props.currentDay, 2),
+          })
+        );
+      } else if (props.tabletView) {
+        props.onSetWeekOf(
+          eachDayOfInterval({
+            start: props.currentDay,
+            end: addDays(props.currentDay, 3),
           })
         );
       } else {
@@ -98,6 +112,13 @@ function WeekView(props) {
           eachDayOfInterval({
             start: props.currentDay,
             end: addDays(props.currentDay, 2),
+          })
+        );
+      } else if (props.tabletView) {
+        props.onSetWeekOf(
+          eachDayOfInterval({
+            start: props.currentDay,
+            end: addDays(props.currentDay, 3),
           })
         );
       } else {
@@ -194,7 +215,13 @@ function WeekView(props) {
                         ? "solid"
                         : "none",
                   }}
-                  className={props.mobileView ? "mobileCell" : "weekCell"}
+                  className={
+                    props.mobileView
+                      ? "mobileCell"
+                      : props.tabletView
+                      ? "tabletCell"
+                      : "weekCell"
+                  }
                 >
                   <Row align="middle">
                     <Col style={{ marginRight: 2 }}>

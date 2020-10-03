@@ -12,13 +12,20 @@ import useViewport from "./useViewPort";
 
 function App(props) {
   const [mobileView, setMobileView] = useState(false);
+  const [tabletView, setTabletView] = useState(false);
   const { width } = useViewport();
-  const breakpoint = 769;
+  const mobileBreakpoint = 769;
+  const tabletBreakpoint = 1025;
   useEffect(() => {
-    if (width < breakpoint) {
+    if (width < mobileBreakpoint) {
       setMobileView(true);
+      setTabletView(false);
+    } else if (width < tabletBreakpoint) {
+      setMobileView(false);
+      setTabletView(true);
     } else {
       setMobileView(false);
+      setTabletView(false);
     }
   }, [width]);
 
@@ -50,14 +57,14 @@ function App(props) {
         gutter={[48, 8]}
       >
         <Col
-          span={mobileView ? 24 : 8}
+          span={mobileView ? 24 : tabletView ? 12 : 8}
           className={mobileView ? null : "calendarCol"}
         >
           {" "}
-          <MascotSVG mobileView={mobileView} />
+          <MascotSVG mobileView={mobileView} tabletView={tabletView} />
           <Row style={{ marginTop: -80 }}>
             <Col span={24}>
-              <Calendar mobileView={mobileView} />
+              <Calendar mobileView={mobileView} tabletView={tabletView} />
             </Col>
           </Row>
           <Row style={{ marginTop: 30 }} justify="center">
@@ -88,8 +95,8 @@ function App(props) {
             </Col>
           </Row>
         </Col>
-        <Col span={mobileView ? 24 : 16}>
-          <WeekView mobileView={mobileView} />
+        <Col span={mobileView ? 24 : tabletView ? 12 : 16}>
+          <WeekView mobileView={mobileView} tabletView={tabletView} />
         </Col>
       </Row>
       {mobileView ? (
@@ -104,13 +111,17 @@ function App(props) {
       ) : (
         <Row justify="space-between" style={{ marginTop: 20 }}>
           <Col span={20}></Col>
-          <Col span={4}>
+          <Col span={4} style={{ textAlign: "center" }}>
             <span className="available">Available</span>
             <span className="booked">Booked</span>
           </Col>
         </Row>
       )}
-      <AptSetter modalStatus={props.modalStatus} mobileView={mobileView} />
+      <AptSetter
+        modalStatus={props.modalStatus}
+        mobileView={mobileView}
+        tabletView={tabletView}
+      />
     </div>
   );
 }
