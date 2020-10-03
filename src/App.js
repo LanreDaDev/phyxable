@@ -92,7 +92,7 @@ function App(props) {
           <WeekView mobileView={mobileView} />
         </Col>
       </Row>
-      {/* {mobileView ? (
+      {mobileView ? (
         <Row justify="center" style={{ marginTop: 20, textAlign: "center" }}>
           <Col span={12}>
             <span className="available">Available</span>
@@ -101,15 +101,15 @@ function App(props) {
             <span className="booked">Booked</span>
           </Col>
         </Row>
-      ) : ( */}
-      <Row justify="space-between" style={{ marginTop: 20 }}>
-        <Col span={20}></Col>
-        <Col span={4}>
-          <span className="available">Available</span>
-          <span className="booked">Booked</span>
-        </Col>
-      </Row>
-      {/* )} */}
+      ) : (
+        <Row justify="space-between" style={{ marginTop: 20 }}>
+          <Col span={20}></Col>
+          <Col span={4}>
+            <span className="available">Available</span>
+            <span className="booked">Booked</span>
+          </Col>
+        </Row>
+      )}
       <AptSetter modalStatus={props.modalStatus} mobileView={mobileView} />
     </div>
   );

@@ -76,7 +76,7 @@
   opacity: 1;
 }
 
-. .available {
+.available {
   background-color: #fff;
   text-transform: uppercase;
   padding: 5px 20px;
@@ -107,6 +107,15 @@
   border-style: none;
   padding: 15px 58px;
   font-size: 17px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.modalMobileButton {
+  background: #18214d;
+  border-radius: 40px;
+  border-style: none;
+  padding: 15px 58px;
+  font-size: 8.5px;
   color: #fff;
   margin-bottom: 20px;
 }

@@ -29,7 +29,7 @@ function AptSetter(props) {
     >
       <div
         className="modal-content"
-        style={{ width: props.mobileView ? 320 + `px` : null }}
+        style={{ width: props.mobileView ? 710 / 2 + `px` : null }}
       >
         <span
           className="close"
@@ -50,7 +50,7 @@ function AptSetter(props) {
           <Col span={20}>
             <h1
               style={{
-                fontSize: 42 + `px`,
+                fontSize: props.mobileView ? 24 + `px` : 42 + `px`,
 
                 fontWeight: 600,
                 color: "#07122A",
@@ -60,7 +60,7 @@ function AptSetter(props) {
             </h1>
             <p
               style={{
-                fontSize: 24 + `px`,
+                fontSize: props.mobileView ? 12 + `px` : 24 + `px`,
                 color: "#07122A",
                 fontWeight: 600,
               }}
@@ -71,7 +71,7 @@ function AptSetter(props) {
             </p>
             <p
               style={{
-                fontSize: 24 + `px`,
+                fontSize: props.mobileView ? 12 + `px` : 24 + `px`,
                 color: "#07122A",
               }}
             >
@@ -80,7 +80,11 @@ function AptSetter(props) {
                 : null}{" "}
             </p>
             <p
-              style={{ fontSize: 37 + `px`, color: "#18214D", fontWeight: 600 }}
+              style={{
+                fontSize: props.mobileView ? 16 + `px` : 37 + `px`,
+                color: "#18214D",
+                fontWeight: 600,
+              }}
             >
               Free Consultation -{" "}
               <span style={{ fontWeight: 300 }}>30mins</span>
@@ -95,7 +99,9 @@ function AptSetter(props) {
                         style={{
                           textAlign: "start",
                           fontWeight: 600,
-                          fontSize: 19 + `px`,
+                          fontSize: props.mobileView
+                            ? 19 / 2 + `px`
+                            : 19 + `px`,
                         }}
                       >
                         {" "}
@@ -113,7 +119,9 @@ function AptSetter(props) {
                           borderStyle: "none",
                           padding: 15,
                           color: " #0B152D",
-                          fontSize: 17 + `px`,
+                          fontSize: props.mobileView
+                            ? 17 / 2 + `px`
+                            : 17 + `px`,
                         }}
                         name="phone"
                         id=""
@@ -129,7 +137,9 @@ function AptSetter(props) {
                           textAlign: "start",
                           textAlign: "start",
                           fontWeight: 600,
-                          fontSize: 19 + `px`,
+                          fontSize: props.mobileView
+                            ? 19 / 2 + `px`
+                            : 19 + `px`,
                           marginTop: 30,
                         }}
                       >
@@ -147,7 +157,9 @@ function AptSetter(props) {
                           borderStyle: "none",
                           padding: 15,
                           color: " #0B152D",
-                          fontSize: 17 + `px`,
+                          fontSize: props.mobileView
+                            ? 17 / 2 + `px`
+                            : 17 + `px`,
                         }}
                         id=""
                         cols="30"
@@ -157,7 +169,12 @@ function AptSetter(props) {
                   </Row>
                 </Col>
                 <Col style={{ marginTop: 40 }}>
-                  <button className="modalButton" onClick={makeAppointment}>
+                  <button
+                    className={
+                      props.mobileView ? "modalMobileButton" : "modalButton"
+                    }
+                    onClick={makeAppointment}
+                  >
                     MAKE APPOINTMENT
                   </button>
                 </Col>
