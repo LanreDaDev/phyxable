@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import "./Calendar.css";
 import "./App.css";
@@ -8,8 +8,20 @@ import Calendar from "./Calendar";
 import WeekView from "./WeekView";
 import AptSetter from "./AptSetter";
 import MascotSVG from "./MascotSVG";
+import useViewport from "./useViewPort";
 
 function App(props) {
+  const [mobileView, setMobileView] = useState(false);
+  const { width } = useViewport();
+  const breakpoint = 769;
+  useEffect(() => {
+    if (width < breakpoint) {
+      setMobileView(true);
+    } else {
+      setMobileView(false);
+    }
+  }, [width]);
+
   return (
     <div
       className="App"
@@ -37,12 +49,12 @@ function App(props) {
         style={{ padding: 10 }}
         gutter={[48, 8]}
       >
-        <Col sm={24} md={8} className="calendarCol">
+        <Col span={mobileView ? 24 : 8} className="calendarCol">
           {" "}
           <MascotSVG />
           <Row style={{ marginTop: -80 }}>
             <Col span={24}>
-              <Calendar />
+              <Calendar mobileView={mobileView} />
             </Col>
           </Row>
           <Row style={{ marginTop: 30 }} justify="center">
@@ -73,18 +85,29 @@ function App(props) {
             </Col>
           </Row>
         </Col>
-        <Col sm={24} md={16}>
-          <WeekView />
+        <Col span={mobileView ? 24 : 16}>
+          <WeekView mobileView={mobileView} />
         </Col>
       </Row>
-      <Row justify="space-between" style={{ marginTop: 20 }}>
-        <Col span={20}></Col>
-        <Col span={4}>
-          <span className="available">Available</span>
-          <span className="booked">Booked</span>
-        </Col>
-      </Row>
-      <AptSetter modalStatus={props.modalStatus} />
+      {mobileView ? (
+        <Row justify="center" style={{ marginTop: 20, textAlign: "center" }}>
+          <Col span={12}>
+            <span className="available">Available</span>
+          </Col>
+          <Col span={12}>
+            <span className="booked">Booked</span>
+          </Col>
+        </Row>
+      ) : (
+        <Row justify="space-between" style={{ marginTop: 20 }}>
+          <Col span={20}></Col>
+          <Col span={4}>
+            <span className="available">Available</span>
+            <span className="booked">Booked</span>
+          </Col>
+        </Row>
+      )}
+      <AptSetter modalStatus={props.modalStatus} mobileView={mobileView} />
     </div>
   );
 }

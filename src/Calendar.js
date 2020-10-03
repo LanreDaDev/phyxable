@@ -18,15 +18,23 @@ import { connect } from "react-redux";
 const Calendar = (props) => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [aptMade, setAptMade] = useState();
 
   useEffect(() => {
-    props.onSetWeekOf(
-      eachDayOfInterval({
-        start: startOfWeek(currentDate),
-        end: endOfWeek(currentDate),
-      })
-    );
+    if (props.mobileView) {
+      props.onSetWeekOf(
+        eachDayOfInterval({
+          start: currentDate,
+          end: addDays(currentDate, 2),
+        })
+      );
+    } else {
+      props.onSetWeekOf(
+        eachDayOfInterval({
+          start: startOfWeek(currentDate),
+          end: endOfWeek(currentDate),
+        })
+      );
+    }
   }, []);
   useEffect(() => {
     setCurrentDate(props.currentDay);
@@ -107,12 +115,23 @@ const Calendar = (props) => {
   const onDateClick = (day) => {
     setSelectedDate(day);
     props.onSetCurrentDay(day);
-    props.onSetWeekOf(
-      eachDayOfInterval({
-        start: startOfWeek(day),
-        end: endOfWeek(day),
-      })
-    );
+
+    if (props.mobileView) {
+      console.log(true);
+      props.onSetWeekOf(
+        eachDayOfInterval({
+          start: day,
+          end: addDays(day, 2),
+        })
+      );
+    } else {
+      props.onSetWeekOf(
+        eachDayOfInterval({
+          start: startOfWeek(day),
+          end: endOfWeek(day),
+        })
+      );
+    }
   };
   const cells = () => {
     const monthStart = startOfMonth(currentDate);

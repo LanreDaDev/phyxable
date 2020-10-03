@@ -9,6 +9,7 @@ import {
   endOfWeek,
   eachDayOfInterval,
 } from "date-fns";
+import useViewport from "./useViewPort";
 
 function WeekView(props) {
   const [weekHeaderDisplay, setWeekHeaderDisplay] = useState({});
@@ -40,13 +41,42 @@ function WeekView(props) {
   }, [props.weekOf]);
 
   useEffect(() => {
-    if (notCurrent) {
+    if (props.mobileView) {
+      console.log(true);
+      props.onSetWeekOf(
+        eachDayOfInterval({
+          start: props.currentDay,
+          end: addDays(props.currentDay, 2),
+        })
+      );
+    } else {
       props.onSetWeekOf(
         eachDayOfInterval({
           start: startOfWeek(props.currentDay),
           end: endOfWeek(props.currentDay),
         })
       );
+    }
+  }, [props.mobileView]);
+
+  useEffect(() => {
+    if (notCurrent) {
+      if (props.mobileView) {
+        console.log(true);
+        props.onSetWeekOf(
+          eachDayOfInterval({
+            start: props.currentDay,
+            end: addDays(props.currentDay, 2),
+          })
+        );
+      } else {
+        props.onSetWeekOf(
+          eachDayOfInterval({
+            start: startOfWeek(props.currentDay),
+            end: endOfWeek(props.currentDay),
+          })
+        );
+      }
     }
     const result = props.weekOf.filter(
       (element) =>
@@ -62,15 +92,24 @@ function WeekView(props) {
 
   useEffect(() => {
     if (notCurrent) {
-      props.onSetWeekOf(
-        eachDayOfInterval({
-          start: startOfWeek(props.currentDay),
-          end: endOfWeek(props.currentDay),
-        })
-      );
+      if (props.mobileView) {
+        console.log(true);
+        props.onSetWeekOf(
+          eachDayOfInterval({
+            start: props.currentDay,
+            end: addDays(props.currentDay, 2),
+          })
+        );
+      } else {
+        props.onSetWeekOf(
+          eachDayOfInterval({
+            start: startOfWeek(props.currentDay),
+            end: endOfWeek(props.currentDay),
+          })
+        );
+      }
     }
   }, [notCurrent]);
-  useEffect(() => {}, [props.apts]);
 
   const timeClick = (timeStart, timeEnd) => {
     var time = { start: timeStart, end: timeEnd };
@@ -149,7 +188,7 @@ function WeekView(props) {
                         ? "solid"
                         : "none",
                   }}
-                  className="weekCell"
+                  className={props.mobileView ? "mobileCell" : "weekCell"}
                 >
                   <Row align="middle">
                     <Col style={{ marginRight: 2 }}>
