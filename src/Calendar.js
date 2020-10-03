@@ -82,10 +82,16 @@ const Calendar = (props) => {
               style={{ display: "flex", justifyContent: "flex-end" }}
             >
               {" "}
-              <div className="icon" onClick={prevMonth}>
+              <div
+                className={props.mobileView ? "icon mobileIcon" : "icon"}
+                onClick={prevMonth}
+              >
                 chevron_left
               </div>
-              <div className="icon" onClick={nextMonth}>
+              <div
+                className={props.mobileView ? "icon mobileIcon" : "icon"}
+                onClick={nextMonth}
+              >
                 chevron_right
               </div>
             </div>

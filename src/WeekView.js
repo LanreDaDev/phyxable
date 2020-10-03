@@ -145,10 +145,16 @@ function WeekView(props) {
               <span>{weekHeaderDisplay.year}</span>
             </Col>{" "}
             <Col>
-              <div className="icon" onClick={prevDay}>
+              <div
+                className={props.mobileView ? "icon mobileIcon" : "icon"}
+                onClick={prevDay}
+              >
                 chevron_left
               </div>
-              <div className="icon" onClick={nextDay}>
+              <div
+                className={props.mobileView ? "icon mobileIcon" : "icon"}
+                onClick={nextDay}
+              >
                 chevron_right
               </div>
               {/* <Button onClick={prevDay}>prev</Button> {"     "}{" "}

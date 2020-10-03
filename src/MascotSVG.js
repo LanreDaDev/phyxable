@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-function MascotSVG() {
+function MascotSVG(props) {
+  const [mobileMascot, setMobileMascot] = useState(false);
+  useEffect(() => {
+    setMobileMascot(props.mobileView);
+    console.log(props.mobileView);
+  }, [props.mobileView]);
   return (
     <div className="svgMascot">
       <svg
@@ -9,6 +14,7 @@ function MascotSVG() {
         viewBox="0 0 109 75"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        style={{ opacity: mobileMascot ? 0.3 : 1.0 }}
       >
         <g clipPath="url(#clip0)">
           <path

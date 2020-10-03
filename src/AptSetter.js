@@ -27,7 +27,10 @@ function AptSetter(props) {
         display: props.modalStatus ? "block" : "none",
       }}
     >
-      <div className="modal-content">
+      <div
+        className="modal-content"
+        style={{ width: props.mobileView ? 320 + `px` : null }}
+      >
         <span
           className="close"
           onClick={() => {

@@ -24,6 +24,12 @@
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently
                                 supported by Chrome, Edge, Opera and Firefox */
+  color: #18214d;
+}
+
+.mobileIcon {
+  font-size: 40px;
+  color: #18214d;
 }
 /* GENERAL */
 * {

@@ -49,9 +49,12 @@ function App(props) {
         style={{ padding: 10 }}
         gutter={[48, 8]}
       >
-        <Col span={mobileView ? 24 : 8} className="calendarCol">
+        <Col
+          span={mobileView ? 24 : 8}
+          className={mobileView ? null : "calendarCol"}
+        >
           {" "}
-          <MascotSVG />
+          <MascotSVG mobileView={mobileView} />
           <Row style={{ marginTop: -80 }}>
             <Col span={24}>
               <Calendar mobileView={mobileView} />
@@ -89,7 +92,7 @@ function App(props) {
           <WeekView mobileView={mobileView} />
         </Col>
       </Row>
-      {mobileView ? (
+      {/* {mobileView ? (
         <Row justify="center" style={{ marginTop: 20, textAlign: "center" }}>
           <Col span={12}>
             <span className="available">Available</span>
@@ -98,15 +101,15 @@ function App(props) {
             <span className="booked">Booked</span>
           </Col>
         </Row>
-      ) : (
-        <Row justify="space-between" style={{ marginTop: 20 }}>
-          <Col span={20}></Col>
-          <Col span={4}>
-            <span className="available">Available</span>
-            <span className="booked">Booked</span>
-          </Col>
-        </Row>
-      )}
+      ) : ( */}
+      <Row justify="space-between" style={{ marginTop: 20 }}>
+        <Col span={20}></Col>
+        <Col span={4}>
+          <span className="available">Available</span>
+          <span className="booked">Booked</span>
+        </Col>
+      </Row>
+      {/* )} */}
       <AptSetter modalStatus={props.modalStatus} mobileView={mobileView} />
     </div>
   );

@@ -73,8 +73,10 @@
   position: relative;
   bottom: -34.75em;
   left: -1.75em;
+  opacity: 1;
 }
-.available {
+
+. .available {
   background-color: #fff;
   text-transform: uppercase;
   padding: 5px 20px;
